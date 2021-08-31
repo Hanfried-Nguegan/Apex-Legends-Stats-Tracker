@@ -12,10 +12,10 @@ function Banner() {
     const data = await axios.post("/api/apex/", {
       platform,
       platformUserIdentifier,
-    });
-    const profile = JSON.parse(JSON.stringify(data.data));
+    })
+    const profile = JSON.parse(JSON.stringify(data.data))
     // You have the user profile
-  };
+  }
 
   return (
     <div className="bg-cover bg-worlds-edge">
