@@ -1,12 +1,20 @@
 import Image from "next/image";
-import WorldsEdge from "../public/images/worlds_edge.jpg";
 import ApexGif from "../public/images/apex_logo_gif.gif";
 import XboxLogo from "../public/images/xbox_logo.png";
 import OriginLogo from "../public/images/origin_logo.png";
 import PsLogo from "../public/images/ps4_logo.png";
 import Leader from "./Leader";
+import axios from "axios"
 
 function Banner() {
+
+  // const getUserProfile = async () => {
+  //   // Capture data for platform and platformUserId
+  //   const data = await axios.post("/api/apex/", { platform, platformUserIdentifier })
+  //   const profile = JSON.parse(JSON.stringify(data.data))
+  //   // You have the user profile
+  // }
+
   return (
     <div className="bg-cover bg-worlds-edge">
       <div className="flex flex-col lg:flex-row lg:pt-16 lg:pr-16 lg:pb-32 lg:pl-16 items-center justify-between pt-1 pr-1 pb-8 pl-1">

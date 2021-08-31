@@ -2,7 +2,7 @@ import axios from "axios"
 
 export default async function handler(req, res) {
 
-    // Get this data from frontend
+    // Get this data from frontend .. Checkout /components/Banner.js
     const { platform, platformUserIdentifier } = req.body
 
     const apiUrl = "https://public-api.tracker.gg/v2/apex/standard/profile/" + platform + "/" + platformUserIdentifier
