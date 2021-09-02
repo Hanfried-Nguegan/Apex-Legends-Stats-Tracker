@@ -1,4 +1,6 @@
+import React, { useState } from "react";
 import Image from "next/image";
+import SearchIcon from "@material-ui/icons/Search";
 import ApexGif from "../public/images/apex_logo_gif.gif";
 import XboxLogo from "../public/images/xbox_logo.png";
 import OriginLogo from "../public/images/origin_logo.png";
@@ -7,18 +9,23 @@ import Leader from "./Leader";
 import axios from "axios";
 
 function Banner() {
+  const [platform, setPlatform] = useState("psn");
+  const [platformUserIdentifier, setPlatformUserIdentifier] = useState("");
+  console.log(platform);
+  console.log(platformUserIdentifier);
   const getUserProfile = async () => {
     // Capture data for platform and platformUserId
     const data = await axios.post("/api/apex/", {
       platform,
       platformUserIdentifier,
-    })
-    const profile = JSON.parse(JSON.stringify(data.data))
+    });
+    const profile = JSON.parse(JSON.stringify(data.data));
     // You have the user profile
-  }
+    console.log(data);
+  };
 
   return (
-    <div className="bg-cover bg-worlds-edge">
+    <div className="bg-cover h-screen bg-worlds-edge">
       <div className="flex flex-col lg:flex-row lg:pt-16 lg:pr-16 lg:pb-32 lg:pl-16 items-center justify-between pt-1 pr-1 pb-8 pl-1">
         <div className="flex flex-col w-full md:w-11/12 justify-between items-center ">
           <div className="flex items-center space-x-3 mt-1 mb-2 ml-0 mr-0">
@@ -36,7 +43,10 @@ function Banner() {
           </div>
           <div className="flex mb-2 w-full lg:w-3/5 md:w-4/5 flex-col ">
             <div className="flex justify-between p-2  m-2 h-16 bg-gray-900 rounded-md bg-opacity-50">
-              <div className="flex flex-grow justify-center cursor-pointer">
+              <div
+                className="flex flex-grow justify-center cursor-pointer"
+                onClick={(e) => setPlatform("origin")}
+              >
                 <Image
                   src={OriginLogo}
                   objectFit="contain"
@@ -44,7 +54,10 @@ function Banner() {
                   width={30}
                 />
               </div>
-              <div className="flex flex-grow justify-center cursor-pointer">
+              <div
+                className="flex flex-grow justify-center cursor-pointer"
+                onClick={(e) => setPlatform("xbl")}
+              >
                 <Image
                   src={XboxLogo}
                   objectFit="contain"
@@ -52,7 +65,10 @@ function Banner() {
                   width={30}
                 />
               </div>
-              <div className="flex flex-grow justify-center cursor-pointer">
+              <div
+                className="flex flex-grow justify-center cursor-pointer"
+                onClick={(e) => setPlatform("psn")}
+              >
                 <Image
                   src={PsLogo}
                   objectFit="contain"
@@ -61,12 +77,15 @@ function Banner() {
                 />
               </div>
             </div>
-            <div className="flex">
+            <div className="flex items-center">
               <input
+                value={platformUserIdentifier}
+                onChange={(e) => setPlatformUserIdentifier(e.target.value)}
                 type="text"
                 placeholder="Enter A Username"
                 className="flex flex-1 m-2 p-2 h-16 rounded-md outline-none"
               />
+              <SearchIcon className="bg-white" onClick={getUserProfile} />
             </div>
           </div>
         </div>
