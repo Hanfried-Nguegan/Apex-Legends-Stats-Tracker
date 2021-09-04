@@ -9,7 +9,6 @@ import Leader from "./Leader";
 import axios from "axios";
 
 function Banner() {
-<<<<<<< HEAD
   const [platform, setPlatform] = useState("psn")
 
   const [platformUserIdentifier, setPlatformUserIdentifier] = useState("")
@@ -19,13 +18,6 @@ function Banner() {
   // console.log(platform)
   // console.log(platformUserIdentifier)
 
-=======
-  const [platform, setPlatform] = useState("psn");
-  const [platformUserIdentifier, setPlatformUserIdentifier] = useState("");
-  const [userProfile, setUserProfile] = useState([]);
-  console.log(platform);
-  console.log(platformUserIdentifier);
->>>>>>> 04ee81bceec7172adaf353951d65080acc3f0cca
   const getUserProfile = async () => {
     // Capture data for platform and platformUserId
     const data = await axios.post("/api/apex/", {
@@ -33,16 +25,9 @@ function Banner() {
       platformUserIdentifier,
     });
     const profile = JSON.parse(JSON.stringify(data.data));
-
     // You have the user profile
-<<<<<<< HEAD
     console.log(profile)
     setUserProfile(profile)
-=======
-    setUserProfile(profile);
-    console.log(profile);
-    console.log(data);
->>>>>>> 04ee81bceec7172adaf353951d65080acc3f0cca
   };
 
   return (
@@ -122,8 +107,7 @@ function Banner() {
               "https://avatar-cdn.tracker.gg/api/avatar/2/youaintgangggang.png"
             }
             name={"youaintgangggang"}
-            activeLegendName={userProfile.activeLegendName}
-            userProfile={userProfile}
+            kills={"10058777"}
           />
           <Leader
             img={
