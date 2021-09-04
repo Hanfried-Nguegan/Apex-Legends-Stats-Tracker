@@ -9,10 +9,15 @@ import Leader from "./Leader";
 import axios from "axios";
 
 function Banner() {
-  const [platform, setPlatform] = useState("psn");
-  const [platformUserIdentifier, setPlatformUserIdentifier] = useState("");
-  console.log(platform);
-  console.log(platformUserIdentifier);
+  const [platform, setPlatform] = useState("psn")
+
+  const [platformUserIdentifier, setPlatformUserIdentifier] = useState("")
+
+  const [userProfile, setUserProfile] = useState()
+
+  // console.log(platform)
+  // console.log(platformUserIdentifier)
+
   const getUserProfile = async () => {
     // Capture data for platform and platformUserId
     const data = await axios.post("/api/apex/", {
@@ -21,7 +26,8 @@ function Banner() {
     });
     const profile = JSON.parse(JSON.stringify(data.data));
     // You have the user profile
-    console.log(data);
+    console.log(profile)
+    setUserProfile(profile)
   };
 
   return (
@@ -65,6 +71,7 @@ function Banner() {
                   width={30}
                 />
               </div>
+              {/* What is this ?? */}
               <div
                 className="flex flex-grow justify-center cursor-pointer"
                 onClick={(e) => setPlatform("psn")}
@@ -87,6 +94,10 @@ function Banner() {
               />
               <SearchIcon className="bg-white" onClick={getUserProfile} />
             </div>
+          </div>
+          {/* Display data */}
+          <div className="flex items-center">
+            {userProfile && userProfile.metadata.activeLegendName}
           </div>
         </div>
         <div className="flex flex-col py-5 w-[400px] md:w-[500px] lg:w-[600px] justify-center mt-2 mr-4 ">
