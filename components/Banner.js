@@ -11,6 +11,7 @@ import axios from "axios";
 function Banner() {
   const [platform, setPlatform] = useState("psn");
   const [platformUserIdentifier, setPlatformUserIdentifier] = useState("");
+  const [userProfile, setUserProfile] = useState([]);
   console.log(platform);
   console.log(platformUserIdentifier);
   const getUserProfile = async () => {
@@ -20,7 +21,10 @@ function Banner() {
       platformUserIdentifier,
     });
     const profile = JSON.parse(JSON.stringify(data.data));
+
     // You have the user profile
+    setUserProfile(profile);
+    console.log(profile);
     console.log(data);
   };
 
@@ -96,7 +100,8 @@ function Banner() {
               "https://avatar-cdn.tracker.gg/api/avatar/2/youaintgangggang.png"
             }
             name={"youaintgangggang"}
-            kills={"10058777"}
+            activeLegendName={userProfile.activeLegendName}
+            userProfile={userProfile}
           />
           <Leader
             img={
