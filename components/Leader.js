@@ -2,7 +2,15 @@ import { Avatar } from "@material-ui/core";
 import Image from "next/image";
 import PsLogo from "../public/images/ps4_logo.png";
 
-function Leader({ name, img, kills, damage, wins }) {
+function Leader({
+  name,
+  img,
+  kills,
+  damage,
+  activeLegendName,
+  userProfile,
+  wins,
+}) {
   return (
     <div className="flex items-center p-3 lg:p-5 flex-1 m-1.5 bg-gradient-to-r from-madtrouble to-sweetmayhem w-full rounded-xl hover:scale-105 transition-transform duration-200 ease-out">
       <div className="p-2">
@@ -21,12 +29,12 @@ function Leader({ name, img, kills, damage, wins }) {
       </div>
       <div className="flex flex-col space-x-1 lg:space-x-2 flex-grow items-center ml-2">
         <div className="text-gray-300 font-semibold text-base ">
-          {(kills && <p>Most Kills</p>) ||
+          {(activeLegendName && <p>Active Legend</p>) ||
             (damage && <p>Highest Damage</p>) ||
             (wins && <p>Most Wins</p>)}
         </div>
         <div className="text-white text-xl font-semibold">
-          {(kills && <p>{kills}</p>) ||
+          {(activeLegendName && <p>{activeLegendName}</p>) ||
             (damage && <p>{damage}</p>) ||
             (wins && <p>{wins}</p>)}
         </div>
