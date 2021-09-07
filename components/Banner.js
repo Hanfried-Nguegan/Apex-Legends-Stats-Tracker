@@ -6,7 +6,7 @@ import XboxLogo from "../public/images/xbox_logo.png";
 import OriginLogo from "../public/images/origin_logo.png";
 import PsLogo from "../public/images/ps4_logo.png";
 import Leader from "./Leader";
-import axios from "axios";
+// import axios from "axios";
 import { useRouter } from "next/router"
 
 function Banner() {
