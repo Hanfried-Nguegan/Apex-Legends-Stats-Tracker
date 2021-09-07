@@ -12,7 +12,11 @@ export default async function handler(req, res) {
 
     try {
         const data = await axios.get(apiUrl, {
-            headers: { "TRN-Api-Key": process.env.APEX_TRN_API_KEY },
+            headers: {
+                "TRN-Api-Key": process.env.APEX_TRN_API_KEY,
+                "Accept": "application/json",
+                "Accept-Encoding": "gzip"
+            },
         });
         // Print first the data to see what to capture
         console.log(data.data["data"])

@@ -7,27 +7,31 @@ import OriginLogo from "../public/images/origin_logo.png";
 import PsLogo from "../public/images/ps4_logo.png";
 import Leader from "./Leader";
 import axios from "axios";
+import { useRouter } from "next/router"
 
 function Banner() {
+
+  const router = useRouter()
+
   const [platform, setPlatform] = useState("psn")
 
   const [platformUserIdentifier, setPlatformUserIdentifier] = useState("")
 
   const [userProfile, setUserProfile] = useState()
 
-  // console.log(platform)
-  // console.log(platformUserIdentifier)
-
   const getUserProfile = async () => {
+    if (platform === "psn") {
+      router.push(`/player/playstation/${platformUserIdentifier}`)
+    }
     // Capture data for platform and platformUserId
-    const data = await axios.post("/api/apex/", {
-      platform,
-      platformUserIdentifier,
-    });
-    const profile = JSON.parse(JSON.stringify(data.data));
-    // You have the user profile
-    console.log(profile)
-    setUserProfile(profile)
+    // const data = await axios.post("/api/apex/", {
+    //   platform,
+    //   platformUserIdentifier,
+    // });
+    // const profile = JSON.parse(JSON.stringify(data.data));
+    // // You have the user profile
+    // console.log(profile)
+    // setUserProfile(profile)
   };
 
   return (
@@ -96,9 +100,9 @@ function Banner() {
             </div>
           </div>
           {/* Display data */}
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             {userProfile && userProfile.metadata.activeLegendName}
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-col py-5 w-[400px] md:w-[500px] lg:w-[600px] justify-center mt-2 mr-4 ">
           {/* Leader Component */}
