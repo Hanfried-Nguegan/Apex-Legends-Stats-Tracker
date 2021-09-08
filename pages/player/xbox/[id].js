@@ -11,10 +11,7 @@ export default function PlayerPage() {
 
   const fetcher = (url) => axios.get(url).then((res) => res.data);
 
-  const { data: player, error } = useSWR(
-    () => "/api/apex/playstation/" + id,
-    fetcher
-  );
+  const { data: player, error } = useSWR(() => "/api/apex/xbox/" + id, fetcher);
 
   if (error) {
     return (
@@ -51,7 +48,7 @@ export default function PlayerPage() {
             </div>
             <PlayerDisplay
               title="Level"
-              value={player.segments[0].stats.level?.displayValue}
+              value={player.segments[0].stats.level.displayValue}
             />
             <PlayerDisplay
               title="Active Legend"

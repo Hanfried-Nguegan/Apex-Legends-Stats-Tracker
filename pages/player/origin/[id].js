@@ -12,7 +12,7 @@ export default function PlayerPage() {
   const fetcher = (url) => axios.get(url).then((res) => res.data);
 
   const { data: player, error } = useSWR(
-    () => "/api/apex/playstation/" + id,
+    () => "/api/apex/origin/" + id,
     fetcher
   );
 
