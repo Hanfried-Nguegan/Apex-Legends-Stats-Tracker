@@ -2,7 +2,8 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import axios from "axios";
 import useSWR from "swr";
-import PlayerDisplay from "@/components/player/playerDisplay";
+import Header from "@/components/Header";
+import PlayerBanner from "@/components/player/PlayerBanner";
 
 export default function PlayerPage() {
   const router = useRouter();
@@ -15,6 +16,7 @@ export default function PlayerPage() {
     () => "/api/apex/playstation/" + id,
     fetcher
   );
+  console.log(player);
 
   if (error) {
     return (
@@ -36,63 +38,16 @@ export default function PlayerPage() {
 
   return (
     <>
+      <Header />
       <Head>
         <title>Player | {player.platformInfo.platformUserId}</title>
       </Head>
-      <div className="container mx-auto px-4">
-        <div className="flex flex-row justify-center p-5">
-          <div className="flex flex-col rounded shadow-lg contrast-125 drop-shadow p-5">
-            <div className="py-4">
-              <img
-                alt="player_img"
-                className="h-100 w-100 object-cover rounded"
-                src={player.platformInfo.avatarUrl}
-              />
-            </div>
-            <PlayerDisplay
-              title="Level"
-              value={player.segments[0].stats.level?.displayValue}
-            />
-            <PlayerDisplay
-              title="Active Legend"
-              value={player.metadata.activeLegendName}
-            />
-            <PlayerDisplay
-              title="Platform User Id"
-              value={player.platformInfo.platformUserId}
-            />
-            {/* Bad Practise below, this is just for example sake .. Learn how to iterate arrays */}
-            <PlayerDisplay
-              title="Kills"
-              value={player.segments[0].stats.kills.displayValue}
-            />
-            <PlayerDisplay
-              title="Damage"
-              value={player.segments[0].stats.damage.displayValue}
-            />
-            <PlayerDisplay
-              title="Rank"
-              value={player.segments[0].stats.arenaRankScore.metadata.rankName}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col md:flex-row space-x-4">
-          <div>
-            <img
-              alt="legend_img"
-              className="h-100 w-100 object-cover rounded"
-              src={player.segments[1].metadata.imageUrl}
-            />
-          </div>
-          <div>
-            <img
-              alt="legend_img2"
-              className="h-100 w-100 object-cover rounded"
-              src={player.segments[1].metadata.tallImageUrl}
-            />
-          </div>
-        </div>
-      </div>
+      <PlayerBanner
+        img={player.segments[1].metadata.bgImageUrl}
+        avatarImg={player.platformInfo.avatarUrl}
+        views={player.userInfo.pageviews}
+        playerName={player.platformInfo.platformUserId}
+      />
     </>
   );
 }

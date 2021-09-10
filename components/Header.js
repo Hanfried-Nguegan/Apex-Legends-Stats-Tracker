@@ -14,9 +14,9 @@ function Header() {
         />
         <p className="ml-10 text-gray-400 font-bold">Apex Legends</p>
       </div>
-      <div className="flex items-center bg-gunpowder mr-10 p-1 rounded-md text-gray-400 active:scale-90 transition duration-150 cursor-pointer ">
+      <div className="flex items-center bg-gunpowder mr-10 p-1 m-3 rounded-md text-gray-400 active:scale-90 transition duration-150 cursor-pointer ">
         <SearchIcon />
-        <p className="hidden md:inline-flex">Search</p>
+        <p className="hidden md:inline-flex">Search Player</p>
       </div>
     </div>
   );

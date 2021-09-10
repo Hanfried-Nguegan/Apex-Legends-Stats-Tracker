@@ -46,9 +46,9 @@ function Banner() {
             </div>
           </div>
           <div className="flex mb-2 w-full lg:w-3/5 md:w-4/5 flex-col ">
-            <div className="flex justify-between p-2  m-2 h-16 bg-gray-900 rounded-md bg-opacity-50">
+            <div className="flex justify-between m-2 h-16 bg-gray-900  rounded-md bg-opacity-50">
               <div
-                className="flex flex-grow justify-center cursor-pointer"
+                className="flex flex-grow justify-center cursor-pointer "
                 onClick={(e) => setPlatform("origin")}
               >
                 <Image
@@ -59,7 +59,7 @@ function Banner() {
                 />
               </div>
               <div
-                className="flex flex-grow justify-center cursor-pointer"
+                className="flex flex-grow justify-center cursor-pointer "
                 onClick={(e) => setPlatform("xbl")}
               >
                 <Image
@@ -71,7 +71,7 @@ function Banner() {
               </div>
               {/* What is this ?? */}
               <div
-                className="flex flex-grow justify-center cursor-pointer"
+                className="flex flex-grow justify-center cursor-pointer "
                 onClick={(e) => setPlatform("psn")}
               >
                 <Image
