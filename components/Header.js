@@ -4,7 +4,7 @@ import SearchIcon from "@material-ui/icons/Search";
 
 function Header() {
   return (
-    <div className="flex items-center justify-between bg-sharptuna h-12">
+    <div className="sticky top-0 z-50 flex items-center justify-between bg-sharptuna h-14">
       <div className="relative flex items-center p-2 h-10 ml-4 lg:ml-12">
         <Image
           src={ApexLogo}

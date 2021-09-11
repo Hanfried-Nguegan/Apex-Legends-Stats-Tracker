@@ -10,6 +10,8 @@ module.exports = {
         blackshark: "#25262E",
         sweetmayhem: "#cbb765",
         madtrouble: "#665c33",
+        purplehaze: "#FB5353",
+        peakypink: "#FF4A8B",
       },
       backgroundImage: (theme) => ({
         "worlds-edge": "url('/images/worlds_edge.jpg')",

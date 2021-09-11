@@ -4,6 +4,7 @@ import axios from "axios";
 import useSWR from "swr";
 import Header from "@/components/Header";
 import PlayerBanner from "@/components/player/PlayerBanner";
+import PlayerPlatform from "@/components/player/PlayerPlatform";
 
 export default function PlayerPage() {
   const router = useRouter();
@@ -48,6 +49,13 @@ export default function PlayerPage() {
         views={player.userInfo.pageviews}
         playerName={player.platformInfo.platformUserId}
       />
+      <main className="bg-blackshark h-screen">
+        <div className="mx-auto">
+          <PlayerPlatform player={player} />
+        </div>
+        <div></div>
+        <div></div>
+      </main>
     </>
   );
 }
