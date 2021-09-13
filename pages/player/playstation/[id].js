@@ -5,6 +5,7 @@ import useSWR from "swr";
 import Header from "@/components/Header";
 import PlayerBanner from "@/components/player/PlayerBanner";
 import PlayerPlatform from "@/components/player/PlayerPlatform";
+import PlayerLegends from "@/components/player/PlayerLegends";
 
 export default function PlayerPage() {
   const router = useRouter();
@@ -49,11 +50,21 @@ export default function PlayerPage() {
         views={player.userInfo.pageviews}
         playerName={player.platformInfo.platformUserId}
       />
-      <main className="bg-blackshark h-screen">
-        <div className="mx-auto">
+      <main className="bg-blackshark min-h-screen overflow-hidden">
+        <div>
           <PlayerPlatform player={player} />
         </div>
-        <div></div>
+        <div>
+          <p className="px-5 mb-3 ml-2 font-semibold text-white text-base">
+            Legends Overview
+          </p>
+          {player.segments.slice(1, player.segments.length).map((item) => (
+            <PlayerLegends
+              legendImg={item.metadata.imageUrl}
+              legendName={item.metadata.name}
+            />
+          ))}
+        </div>
         <div></div>
       </main>
     </>

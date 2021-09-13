@@ -6,7 +6,7 @@ import LifetimeStats from "./LifetimeStats";
 
 function PlayerPlatform({ player }) {
   return (
-    <div className="flex items-center justify-between ml-2 mr-2 p-2">
+    <div className="flex items-center justify-between ml-2 mb-3 mr-2 p-3 lg:px-5">
       <div className="flex flex-col">
         <div>
           <p className="text-base text-white font-semibold mb-2">Platform</p>
@@ -23,7 +23,7 @@ function PlayerPlatform({ player }) {
           </div>
         </div>
       </div>
-      <div>
+      <div className="flex flex-col">
         <div>
           <p className="text-base text-white font-semibold mb-2">
             Lifetime Stats
