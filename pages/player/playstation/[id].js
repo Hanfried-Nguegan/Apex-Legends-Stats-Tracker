@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import PlayerBanner from "@/components/player/PlayerBanner";
 import PlayerPlatform from "@/components/player/PlayerPlatform";
 import PlayerLegends from "@/components/player/PlayerLegends";
+import PlayerStats from "@/components/player/PlayerStats";
 
 export default function PlayerPage() {
   const router = useRouter();
@@ -62,6 +63,7 @@ export default function PlayerPage() {
             <PlayerLegends
               legendImg={item.metadata.imageUrl}
               legendName={item.metadata.name}
+              player={player}
             />
           ))}
         </div>
