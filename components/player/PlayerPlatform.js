@@ -36,7 +36,7 @@ function PlayerPlatform({ player }) {
           </p>
         </div>
         <div className="flex space-x-2">
-          <div>
+          <div className="hidden md:inline-flex">
             <LifetimeStats
               title={"Level"}
               value={player.segments[0].stats.level?.displayValue}
@@ -61,7 +61,7 @@ function PlayerPlatform({ player }) {
           <p className="text-base text-white font-semibold mb-2">Overview</p>
         </div>
         <div className="flex space-x-2">
-          <div>
+          <div className="hidden md:inline-flex">
             <LifetimeStats
               title={"Total Finishers"}
               value={player.segments[0].stats.finishers?.displayValue}
@@ -73,7 +73,7 @@ function PlayerPlatform({ player }) {
               title={"Total Headshots"}
             />
           </div>
-          <div>
+          <div className="hidden md:inline-flex">
             <LifetimeStats
               title={"Rank Score"}
               value={player.segments[0].stats.rankScore?.displayValue}
