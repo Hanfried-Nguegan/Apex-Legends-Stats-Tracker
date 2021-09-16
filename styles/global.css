@@ -4,7 +4,7 @@
     @apply flex flex-grow justify-center cursor-pointer;
   }
   .kills {
-    @apply text-gray-500 text-[12px] font-semibold;
+    @apply text-gray-500 text-[12px] font-semibold whitespace-nowrap;
   }
   .value {
     @apply text-white text-base font-semibold;
