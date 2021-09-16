@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ClipLoader";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -7,7 +10,15 @@ import PlayerBanner from "@/components/player/PlayerBanner";
 import PlayerPlatform from "@/components/player/PlayerPlatform";
 import PlayerLegends from "@/components/player/PlayerLegends";
 
+const override = css`
+  display: block;
+  margin: 2;
+  border-color: red;
+`;
+
 export default function PlayerPage() {
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ffffff");
   const router = useRouter();
 
   const { id } = router.query;
@@ -33,7 +44,15 @@ export default function PlayerPage() {
     return (
       <>
         <Head>Player | Loading...</Head>
-        <div>Loading...</div>
+        <div className="flex items-center">
+          <ClipLoader
+            color={color}
+            loading={loading}
+            css={override}
+            size={25}
+          />
+          <p>Loading</p>
+        </div>
       </>
     );
   }
@@ -51,7 +70,7 @@ export default function PlayerPage() {
         playerName={player.platformInfo.platformUserId}
       />
       <main className="bg-blackshark min-h-screen overflow-hidden ">
-        <div className="lg:max-w-7xl lg:mx-auto max-w">
+        <div className="lg:max-w-[90rem] lg:mx-auto max-w">
           <div>
             <PlayerPlatform player={player} />
           </div>

@@ -9,12 +9,8 @@ import { useRouter } from "next/router";
 
 function Banner() {
   const router = useRouter();
-
   const [platform, setPlatform] = useState("psn");
-
   const [platformUserIdentifier, setPlatformUserIdentifier] = useState("");
-
-  const [userProfile, setUserProfile] = useState();
 
   const getUserProfile = async () => {
     if (platform === "psn") {
@@ -47,10 +43,7 @@ function Banner() {
           </div>
           <div className="flex mb-2 w-full lg:w-3/5 md:w-4/5 flex-col ">
             <div className="flex justify-between m-2 h-16 bg-gray-900  rounded-md bg-opacity-50">
-              <div
-                className="flex flex-grow justify-center cursor-pointer "
-                onClick={(e) => setPlatform("origin")}
-              >
+              <div className="icons" onClick={(e) => setPlatform("origin")}>
                 <Image
                   src={OriginLogo}
                   objectFit="contain"
@@ -58,10 +51,7 @@ function Banner() {
                   width={30}
                 />
               </div>
-              <div
-                className="flex flex-grow justify-center cursor-pointer "
-                onClick={(e) => setPlatform("xbl")}
-              >
+              <div className="icons" onClick={(e) => setPlatform("xbl")}>
                 <Image
                   src={XboxLogo}
                   objectFit="contain"
@@ -70,10 +60,7 @@ function Banner() {
                 />
               </div>
               {/* What is this ?? */}
-              <div
-                className="flex flex-grow justify-center cursor-pointer "
-                onClick={(e) => setPlatform("psn")}
-              >
+              <div className="icons" onClick={(e) => setPlatform("psn")}>
                 <Image
                   src={PsLogo}
                   objectFit="contain"

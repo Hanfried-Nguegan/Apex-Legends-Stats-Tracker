@@ -9,18 +9,24 @@ function PlayerPlatform({ player }) {
     <div className="flex items-center justify-between ml-2 mb-3 mr-2 p-3 lg:px-5">
       <div className="flex flex-col">
         <div>
-          <p className="text-base text-white font-semibold mb-2">Platform</p>
+          <p className="text-base text-white font-semibold mb-2">Platforms</p>
         </div>
         <div className="flex space-x-2">
-          <div>
-            <Platforms title={"Playstation"} img={PsLogo} active />{" "}
-          </div>
-          <div className="hidden lg:inline-flex">
-            <Platforms title={"PC"} img={OriginLogo} />
-          </div>
-          <div className="hidden lg:inline-flex">
-            <Platforms title={"Xbox"} img={XboxLogo} />
-          </div>
+          {player.platformInfo.platformSlug == "psn" && (
+            <div>
+              <Platforms title={"Playstation"} img={PsLogo} active />{" "}
+            </div>
+          )}
+          {player.platformInfo.platformSlug == "origin" && (
+            <div>
+              <Platforms title={"PC"} img={OriginLogo} active />
+            </div>
+          )}
+          {player.platformInfo.platformSlug == "xbl" && (
+            <div>
+              <Platforms title={"Xbox"} img={XboxLogo} active />
+            </div>
+          )}
         </div>
       </div>
       <div className="flex flex-col">
