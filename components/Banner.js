@@ -59,7 +59,6 @@ function Banner() {
                   width={30}
                 />
               </div>
-              {/* What is this ?? */}
               <div className="icons" onClick={(e) => setPlatform("psn")}>
                 <Image
                   src={PsLogo}

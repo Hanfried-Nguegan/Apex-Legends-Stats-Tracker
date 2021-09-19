@@ -12,6 +12,7 @@ function PlayerLegends({
   headshots,
   killLeader,
   sniperKills,
+  player,
 }) {
   const [dropDown, setDropDown] = useState(true);
   const dropDownHandler = () => {
@@ -27,7 +28,11 @@ function PlayerLegends({
           onClick={() => dropDownHandler()}
           className="flex items-center absolute right-6 text-white "
         >
-          {dropDown ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+          {dropDown ? (
+            <ArrowDropDownIcon />
+          ) : (
+            <ArrowDropUpIcon className="text-purplehaze" />
+          )}
         </div>
       </div>
       {!dropDown && (
