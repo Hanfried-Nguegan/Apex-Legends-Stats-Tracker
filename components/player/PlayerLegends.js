@@ -12,7 +12,6 @@ function PlayerLegends({
   headshots,
   killLeader,
   sniperKills,
-  player,
 }) {
   const [dropDown, setDropDown] = useState(true);
   const dropDownHandler = () => {

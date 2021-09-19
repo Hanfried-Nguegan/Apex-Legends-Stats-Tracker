@@ -88,7 +88,6 @@ export default function PlayerPage() {
                 wins={item.stats.winningKills?.value}
                 killLeader={item.stats.killsAsKillLeader?.displayValue}
                 sniperKills={item.stats.sniperKills?.displayValue}
-                player={player}
               />
             ))}
           </div>
