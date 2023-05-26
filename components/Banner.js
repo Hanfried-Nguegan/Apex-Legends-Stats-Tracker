@@ -74,9 +74,12 @@ function Banner() {
                 onChange={(e) => setPlatformUserIdentifier(e.target.value)}
                 type="text"
                 placeholder={
-                  (platform == "psn" && "Enter a Playstation Username") ||
-                  (platform == "xbl" && "Enter an XBox Live Username") ||
-                  (platform == "origin" && "Enter an Origin Username")
+                  (platform == "psn" &&
+                    "Enter a Playstation Username eg 'Daltoosh'") ||
+                  (platform == "xbl" &&
+                    "Enter an XBox Live Username eg 'Nesposito ") ||
+                  (platform == "origin" &&
+                    "Enter an Origin Username 'FreiAndre' ")
                 }
                 className="flex flex-1 m-2 p-2 h-16 rounded-md outline-none"
               />
