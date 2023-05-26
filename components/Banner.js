@@ -79,7 +79,7 @@ function Banner() {
                   (platform == "xbl" &&
                     "Enter an XBox Live Username eg 'Nesposito ") ||
                   (platform == "origin" &&
-                    "Enter an Origin Username 'FreiAndre' ")
+                    "Enter an Origin Username eg 'FreiAndre' ")
                 }
                 className="flex flex-1 m-2 p-2 h-16 rounded-md outline-none"
               />
