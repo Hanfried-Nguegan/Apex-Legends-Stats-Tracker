@@ -42,8 +42,15 @@ function Banner() {
             </div>
           </div>
           <div className="flex mb-2 w-full lg:w-3/5 md:w-4/5 flex-col ">
-            <div className="flex justify-between m-2 h-16 bg-gray-900  rounded-md bg-opacity-50">
-              <div className="icons" onClick={(e) => setPlatform("origin")}>
+            <div className="flex justify-between m-2 h-16 bg-gray-900 rounded-md bg-opacity-50">
+              <div
+                className={`flex flex-1 items-center justify-center cursor-pointer rounded-md m-1 transition-all duration-200 ${
+                  platform === "origin"
+                    ? "bg-white bg-opacity-20 opacity-100 scale-105"
+                    : "opacity-40 hover:opacity-70"
+                }`}
+                onClick={(e) => setPlatform("origin")}
+              >
                 <Image
                   src={OriginLogo}
                   objectFit="contain"
@@ -51,7 +58,14 @@ function Banner() {
                   width={30}
                 />
               </div>
-              <div className="icons" onClick={(e) => setPlatform("xbl")}>
+              <div
+                className={`flex flex-1 items-center justify-center cursor-pointer rounded-md m-1 transition-all duration-200 ${
+                  platform === "xbl"
+                    ? "bg-white bg-opacity-20 opacity-100 scale-105"
+                    : "opacity-40 hover:opacity-70"
+                }`}
+                onClick={(e) => setPlatform("xbl")}
+              >
                 <Image
                   src={XboxLogo}
                   objectFit="contain"
@@ -59,7 +73,14 @@ function Banner() {
                   width={30}
                 />
               </div>
-              <div className="icons" onClick={(e) => setPlatform("psn")}>
+              <div
+                className={`flex flex-1 items-center justify-center cursor-pointer rounded-md m-1 transition-all duration-200 ${
+                  platform === "psn"
+                    ? "bg-white bg-opacity-20 opacity-100 scale-105"
+                    : "opacity-40 hover:opacity-70"
+                }`}
+                onClick={(e) => setPlatform("psn")}
+              >
                 <Image
                   src={PsLogo}
                   objectFit="contain"

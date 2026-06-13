@@ -2,6 +2,8 @@ import axios from "axios";
 
 export default async function handler(req, res) {
   const { id } = req.query;
+  console.log("Request body:", req.body);
+  console.log("Query parameters:", req.query);
 
   const apiUrl =
     "https://public-api.tracker.gg/v2/apex/standard/profile/psn/" + id;
